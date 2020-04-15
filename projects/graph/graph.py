@@ -214,17 +214,20 @@ class Graph:
         #add start node
         visited.add(starting_vertex)
         #add path node
-        path = path + [starting_vertex]
-
+        # path = path + [starting_vertex]
+        path_copy = path.copy()
+        path_copy.append(starting_vertex)
         #check for destination
         if starting_vertex == destination_vertex:
-            return path
-    
+            return path_copy
+     
         else: 
             #look through neighbors and rec each neighbor and update the path     
+            
             for n in self.get_neighbors(starting_vertex):
                 if n not in visited:
-                    new_path = self.dfs_recursive(n, destination_vertex, visited, path)
+                   
+                    new_path = self.dfs_recursive(n, destination_vertex, visited, path_copy)
 
                     if new_path is not None:
                         return new_path
