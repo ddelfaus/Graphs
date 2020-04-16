@@ -70,6 +70,7 @@ def earliest_ancestor(ancestors, starting_node):
         v = path[-1]
         # check if it is visited
         # if not visited
+        #check the len to find the longest path and also check the value if there is a tie
         if(len(path) >= max_path and v < oldest_ancestor) or (len(path) > max_path):
             oldest_ancestor = v
             max_path = len(path)
